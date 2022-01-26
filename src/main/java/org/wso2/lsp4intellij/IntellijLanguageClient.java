@@ -91,7 +91,7 @@ public class IntellijLanguageClient implements ApplicationComponent, Disposable 
     /**
      * Use it to initialize the server connection for the given project (useful if no editor is launched)
      */
-    public void initProjectConnections(@NotNull Project project) {
+    public static void initProjectConnections(@NotNull Project project) {
         String projectStr = FileUtils.projectToUri(project);
         // find serverdefinition keys for this project and try to start a wrapper
         extToServerDefinition.entrySet().stream().filter(e -> e.getKey().getRight().equals(projectStr)).forEach(entry -> {
