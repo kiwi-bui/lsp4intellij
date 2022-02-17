@@ -18,6 +18,7 @@ package org.wso2.lsp4intellij.extensions;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.event.DocumentListener;
 import com.intellij.psi.PsiFile;
+import org.eclipse.lsp4j.InitializeParams;
 import org.eclipse.lsp4j.ServerCapabilities;
 import org.eclipse.lsp4j.services.LanguageClient;
 import org.eclipse.lsp4j.services.LanguageServer;
@@ -123,4 +124,5 @@ public interface LSPExtensionManager {
         return new LSPDefaultLabelProvider();
     }
 
+    default InitializeParams getInitParams() { return null; }
 }

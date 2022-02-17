@@ -560,8 +560,16 @@ public class LanguageServerWrapper {
     }
 
     private InitializeParams getInitParams() {
-        InitializeParams initParams = new InitializeParams();
+
+        InitializeParams initParams = extManager.getInitParams() != null ? extManager.getInitParams() : createInitParams();
         initParams.setRootUri(FileUtils.pathToUri(projectRootPath));
+        initParams.setInitializationOptions(
+                serverDefinition.getInitializationOptions(URI.create(initParams.getRootUri())));
+        return initParams;
+    }
+
+    public static InitializeParams createInitParams() {
+        InitializeParams initParams = new InitializeParams();
         //TODO update capabilities when implemented
         WorkspaceClientCapabilities workspaceClientCapabilities = new WorkspaceClientCapabilities();
         workspaceClientCapabilities.setApplyEdit(true);
@@ -588,9 +596,6 @@ public class LanguageServerWrapper {
         textDocumentClientCapabilities.setSynchronization(new SynchronizationCapabilities(true, true, true));
         initParams.setCapabilities(
                 new ClientCapabilities(workspaceClientCapabilities, textDocumentClientCapabilities, null));
-        initParams.setInitializationOptions(
-                serverDefinition.getInitializationOptions(URI.create(initParams.getRootUri())));
-
         return initParams;
     }
 
