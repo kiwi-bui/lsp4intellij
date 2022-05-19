@@ -255,7 +255,10 @@ public class LanguageServerWrapper {
     }
 
     public void notifyResult(Timeouts timeouts, boolean success) {
-        getWidget().notifyResult(timeouts, success);
+        LSPServerStatusWidget widget = getWidget();
+        if (widget != null) {
+            widget.notifyResult(timeouts, success);
+        }
     }
 
     public void notifySuccess(Timeouts timeouts) {
@@ -620,7 +623,9 @@ public class LanguageServerWrapper {
     private void setStatus(ServerStatus status) {
         this.status = status;
         LSPServerStatusWidget widget = getWidget();
-        widget.setStatus(status);
+        if (widget != null) {
+            widget.setStatus(status);
+        }
     }
 
     public void crashed(Exception e) {
@@ -677,7 +682,10 @@ public class LanguageServerWrapper {
     }
 
     public void removeWidget() {
-        getWidget().dispose();
+        LSPServerStatusWidget widget = getWidget();
+        if (widget != null) {
+            widget.dispose();
+        }
     }
 
     /**
