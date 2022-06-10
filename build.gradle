@@ -22,7 +22,7 @@ tasks{
 }
 
 group = "org.wso2.lsp4intellij"
-version = gitVersionCalculator.calculateVersion("v")
+version = "0.94.2-tap.extension.20220610"
 
 intellij {
     version '2021.1'
