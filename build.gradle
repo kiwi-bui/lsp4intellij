@@ -12,8 +12,14 @@ plugins {
 }
 
 repositories {
-    mavenCentral()
+    maven {
+        url 'https://build-artifactory.eng.vmware.com/artifactory/maven/'
+    }
+    maven {
+        url 'https://build-artifactory.eng.vmware.com/artifactory/plugins-gradle-org-m2/'
+    }
 }
+
 
 tasks{
     runPluginVerifier {
