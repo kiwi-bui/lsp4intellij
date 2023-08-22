@@ -18,6 +18,12 @@ repositories {
     maven {
         url 'https://build-artifactory.eng.vmware.com/artifactory/plugins-gradle-org-m2/'
     }
+    maven {
+        url 'https://artifactory.eng.vmware.com/artifactory/plugins-gradle-remote/'
+    }
+    maven {
+        url 'https://artifactory.eng.vmware.com/artifactory/jcenter-cache/'
+    }
 }
 
 
