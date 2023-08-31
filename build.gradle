@@ -42,7 +42,7 @@ tasks{
 }
 
 group = "org.wso2.lsp4intellij"
-version = "0.96-tap.extension.20230605"
+version = "0.97-tap.extension.20230731"
 
 intellij {
     version '2021.1'
